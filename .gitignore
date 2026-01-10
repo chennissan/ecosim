@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+front/node_modules/
+server/node_modules/
+
+# Build outputs
+front/build/
+server/dist/
+*.log
+
+# Environment files
+.env
+front/.env
+server/.env
+
+# IDE stuff
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
