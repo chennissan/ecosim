@@ -77,6 +77,17 @@ export default function Sidebar() {
       </NavLink>
 
 
+        <NavLink
+          to="/ecosystem"
+        className={({ isActive }) =>
+          isActive ? `${styles.sidebarLink} ${styles.sidebarLinkActive}` : styles.sidebarLink
+        }
+      >
+        <FaMap className={styles.sidebarIcon} />
+        <span className={styles.sidebarLabel}>Ecosystem</span>
+      </NavLink>
+
+
 
     </aside>
   );

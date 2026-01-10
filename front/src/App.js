@@ -11,6 +11,7 @@ import ChangePassword from "./user_pages/ChangePassword";
 import EditUser from "./user_pages/EditUser";
 import UserSearch from "./user_pages/UserSearch";
 import NotFound from "./base_pages/NotFound";
+import EcosystemModel from "./pages/EcosysModel";
 
 
 function App() {
@@ -74,6 +75,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <About />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="ecosystem"
+            element={
+              <ProtectedRoute>
+              <EcosystemModel />
               </ProtectedRoute>
             }
           />
