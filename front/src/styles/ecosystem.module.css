@@ -1,0 +1,112 @@
+.page {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.paramsPanel,
+.results {
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.panelTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.control {
+  width: 100%;
+}
+
+.valueRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.value {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.secondaryButton {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 0.9rem;
+}
+
+.cardLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.cardValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-top: 0.3rem;
+}
+
+.cardMeta {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
