@@ -22,8 +22,8 @@ export default function Layout() {
       <footer className={styles.layoutFooter}>
         <div className={styles.footerContent}>
           <div className={styles.footerQuote}>
-            <h2>“Out of all the things I have lost, I miss my mind the most.”</h2>
-            <h3>Mark Twain</h3>
+            <h2>"When we try to pick out anything by itself, we find it hitched to everything else in the Universe."</h2>
+            <h3>John Muir</h3>
           </div>
         </div>
       </footer>

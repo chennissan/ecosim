@@ -1,15 +1,46 @@
-import React, { useMemo, useState } from "react";
+import React, {useState } from "react";
 import styles from "../styles/ecosystem.module.css";
 
-export default function EcosysModel() {
-  const [biome, setBiome] = useState("desert");
-  const [deltaT, setDeltaT] = useState(0);
-  const [deltaP, setDeltaP] = useState(0);
+const BIOME_BASELINES = {
+  desert: { T0: 25, P0: 150, PET0: 2000, NPP0: 90 },
+  tropical: { T0: 26, P0: 2500, PET0: 1400, NPP0: 2200 },
+};
 
-  // Temporary: just to prove the UI reacts (we’ll replace with real model output next)
-  const preview = useMemo(() => {
-    return { biome, deltaT, deltaP };
-  }, [biome, deltaT, deltaP]);
+// "current values" (baseline- default UI state)
+  const CURRENT_BASELINE = {
+    biome: "desert",
+    deltaT: 0,
+    deltaP: 0,  
+  };
+
+  const PET_SCALE_PER_DEG = 1.07;
+
+
+export default function EcosysModel() {
+
+
+  // initialize state from CURRENT_BASELINE
+  const [biome, setBiome] = useState(CURRENT_BASELINE.biome);
+  const [deltaT, setDeltaT] = useState(CURRENT_BASELINE.deltaT);
+  const [deltaP, setDeltaP] = useState(CURRENT_BASELINE.deltaP);
+
+  //reset function
+  const resetToCurrent = () => {
+    setBiome(CURRENT_BASELINE.biome);
+    setDeltaT(CURRENT_BASELINE.deltaT);
+    setDeltaP(CURRENT_BASELINE.deltaP);
+  };
+
+
+  // --- Derived outputs (Stage 1) ---
+  const base = BIOME_BASELINES[biome];
+   // PET: temperature-driven evaporative demand (scaled from PET0)
+  const PET = base.PET0 * (PET_SCALE_PER_DEG ** deltaT);
+  // Precipitation response (percent change)
+  const P = base.P0 * (1 + deltaP / 100);
+  // WAI: water availability proxy = P / PET (clamped to 0..1)
+  const WAI_raw = P / PET;
+  const WAI = Math.max(0, Math.min(1, WAI_raw));
 
   return (
     <div className={styles.page}>
@@ -69,30 +100,32 @@ export default function EcosysModel() {
 
           <button
             className={styles.secondaryButton}
-            onClick={() => {
-              setBiome("desert");
-              setDeltaT(0);
-              setDeltaP(0);
-            }}
-          >
+            onClick={resetToCurrent}>
             Reset
           </button>
         </aside>
 
         {/* Results */}
         <section className={styles.results}>
-          <h2 className={styles.panelTitle}>Results</h2>
+          <h2 className={styles.panelTitle}>Results (Stage 1)</h2>
 
           <div className={styles.cards}>
+            {/* PET card (real output) */}
             <div className={styles.card}>
-              <div className={styles.cardLabel}>Preview (temporary)</div>
-              <div className={styles.cardValue}>{preview.biome}</div>
+              <div className={styles.cardLabel}>PET (Potential Evapotranspiration)</div>
+              <div className={styles.cardValue}>{Math.round(PET)}</div>
               <div className={styles.cardMeta}>
-                ΔT: {preview.deltaT.toFixed(1)}°C | ΔP: {preview.deltaP}%
+              Baseline: {base.PET0} mm/yr · ΔT: {deltaT.toFixed(1)}°C
               </div>
             </div>
-
-            {/* Next step: PET / WAI / NPP cards */}
+            {/* WAI card (real output) */}
+            <div className={styles.card}>
+              <div className={styles.cardLabel}>WAI (Water Availability Index)</div>
+              <div className={styles.cardValue}>{WAI.toFixed(2)}</div>
+              <div className={styles.cardMeta}>
+                P: {Math.round(P)} mm/yr · PET: {Math.round(PET)} mm/yr
+              </div>
+            </div>
           </div>
         </section>
       </div>

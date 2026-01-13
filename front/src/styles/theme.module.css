@@ -36,7 +36,7 @@ a:hover {
   .layoutHeader {
     grid-area: header;
     padding: 1rem;
-    background-color: #090382;  /* Dark blue header */
+    background-color: #112256;  /* Dark blue header */
     color: white;
   }
   
@@ -229,7 +229,7 @@ a:hover {
     cursor: pointer;
     border-radius: 4px;
     font-weight: bold;
-    background-color: #090382;  /* Dark blue */
+    background-color: #112256;  /* Dark blue */
     color: white;
     border: none;
     padding: 8px 16px;
@@ -349,7 +349,7 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color:#090382;
+    background-color:#112256;
     color: white;
     border: none;
     border-radius: 4px;
@@ -389,7 +389,7 @@ a:hover {
   }
   
   .changePasswordButton {
-    background-color: #090382;
+    background-color: #112256;
     color: white;
     padding: 10px;
     font-size: 16px;
@@ -430,7 +430,7 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #090382;
+    background-color: #112256;
     color: white;
     border: none;
     border-radius: 4px;
@@ -484,7 +484,7 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color:#090382;
+    background-color:#112256;
     color: white;
     border: none;
     border-radius: 4px;
@@ -512,7 +512,7 @@ a:hover {
     text-align: center;
     color: #F2DEB1;
     padding: 2rem;
-    background-color:#090382;
+    background-color:#112256;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
@@ -570,7 +570,7 @@ a:hover {
   }
   
   .loginButton {
-    background-color: #090382;  /* Dark blue */
+    background-color: #112256;  /* Dark blue */
     color: white;
     border: none;
     border-radius: 4px;
@@ -624,7 +624,7 @@ a:hover {
   .notFoundButton {
     margin-top: 1.5rem;
     padding: 10px 20px;
-    background-color: #090382;
+    background-color: #112256;
     color: white;
     border: none;
     border-radius: 6px;
@@ -675,7 +675,7 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #090382;
+    background-color: #112256;
     color: white;
     border: none;
     border-radius: 4px;
@@ -718,7 +718,7 @@ a:hover {
   }
   
   .registerButton {
-    background-color: #090382;  /* Dark blue */
+    background-color: #112256;  /* Dark blue */
     color: white;
     border: none;
     border-radius: 4px;
@@ -763,7 +763,7 @@ a:hover {
   .userSearchButton {
     padding: 10px 16px;
     font-size: 16px;
-    background-color: #090382;
+    background-color: #112256;
     color: white;
     border: none;
     border-radius: 4px;
